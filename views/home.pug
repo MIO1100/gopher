@@ -4,7 +4,7 @@ html(lang="en")
     <!-- Required meta tags -->
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-
+    
     <!-- Bootstrap CSS -->
     link( href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous")
 
@@ -13,7 +13,108 @@ html(lang="en")
     include ./navbar
     
     block navbar
-  
-    br
-    br
-    p success
+    div(class ="p-3")
+        div( class="form-check form-switch" )
+            input(class="form-check-input" style="width: 44px;   height: 22px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+            
+            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                h5 Включить/выключить фильтрацию трафика
+        br
+        br
+
+        label(class="form-check-label" for="flexSwitchCheckChecked")
+                h5 Включить/выключить протоколы сканирования
+        div(class="p-4")        
+            div( class="form-check form-switch" )
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 http
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 smb
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 tftp
+            div( class="form-check form-switch" )
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 ftp
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 dcerpc
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 ikev2
+            div( class="form-check form-switch" )
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 smtp
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 dns
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 krb5
+            div( class="form-check form-switch" )
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 tls
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 nfs
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 dhcp
+            div( class="form-check form-switch" )
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 ssh
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 ntp
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 sip
+            div( class="form-check form-switch" )
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 imap
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 ftp-data
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 rfb
+                    
+                    
+            div( class="form-check form-switch" )
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 mqtt
+                    
+                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                    h6 rdp
+                    
+         

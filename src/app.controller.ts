@@ -25,13 +25,13 @@ export class AppController {
   @UseGuards(AuthenticatedGuard)
   @Get('/main')
   @Render('home')
-  getProfile(@Request() req) {
+  async startPage(@Request() req) {
     return;
   }
   
   @Get()
   @Render('index')
-    async main(@Request() req) {
+  async main(@Request() req) {
         return { message: req.flash('loginError') };
   }
   
@@ -47,20 +47,20 @@ export class AppController {
   @UseGuards(AuthenticatedGuard)
   @Get('/change')
   @Render('change')
-  getProfile(@Request() req) {
+  async openCreds(@Request() req) {
     return;
   }
   
   @UseGuards(AuthenticatedGuard)
   @Post('/change')
   @Render('change')
-  getProfile(@Request() req) {
+  async changeCreds(@Request() req) {
     return;
   }
   
   
   @Get('/logout')
-  logout(@Request() req, @Res() res: Response) {
+  async logout(@Request() req, @Res() res: Response) {
     req.logout();
     res.redirect('/');
   }
