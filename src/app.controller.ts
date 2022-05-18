@@ -16,10 +16,7 @@ export class AppController {
   @UseGuards(LoginGuard)
   @Post('login')
   async login(@Res() res: Response) {
-    //res.cookie('jwt', this.authService.login(req.user), {httpOnly:true});
     res.redirect('/main');
-    //res.redirect('main');
-    //this.authService.login(req.user);
   }
   
   @UseGuards(AuthenticatedGuard)
@@ -37,10 +34,8 @@ export class AppController {
   
   @UseGuards(AuthenticatedGuard)
   @Get('/grafana')
-  @Redirect('http://127.0.0.1', 3000)
-  async grafana(@Request() req) {
-    
-    return "qweqwe";
+  async grafana(@Res() res: Response) {
+    res.redirect('http://127.0.0.1:3000');
   }
   
   

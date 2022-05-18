@@ -7,7 +7,9 @@ html(lang="en")
     
     <!-- Bootstrap CSS -->
     link( href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous")
+    link( href="statics/css/dataTable/dataTables.bootstrap.min.css" type="text/css" rel="stylesheet")
 
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
     title Hello, world!
   body
     include ./navbar
@@ -15,106 +17,464 @@ html(lang="en")
     block navbar
     div(class ="p-3")
         div( class="form-check form-switch" )
-            input(class="form-check-input" style="width: 44px;   height: 22px;" type="checkbox" id="flexSwitchCheckChecked" checked)
+            input(class="form-check-input" style="width: 44px;   height: 22px;" type="checkbox" id="suricata" checked)
             
             label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
                 h5 Включить/выключить фильтрацию трафика
         br
         br
-
         label(class="form-check-label" for="flexSwitchCheckChecked")
                 h5 Включить/выключить протоколы сканирования
-        div(class="p-4")        
-            div( class="form-check form-switch" )
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
                 
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 http
+        div(class="p-4 pull-right")     
+        
+            table( class="table table-bordered table-hover table-striped" id="table")
+                thead
+                    tr
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="http" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 http
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="smb" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 smb
+                        th 
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="tftp" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 tftp
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="ftp" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 ftp
                     
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 smb
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 tftp
-            div( class="form-check form-switch" )
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 ftp
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 dcerpc
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 ikev2
-            div( class="form-check form-switch" )
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 smtp
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 dns
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 krb5
-            div( class="form-check form-switch" )
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 tls
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 nfs
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 dhcp
-            div( class="form-check form-switch" )
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 ssh
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 ntp
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 sip
-            div( class="form-check form-switch" )
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 imap
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 ftp-data
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 rfb
-                    
-                    
-            div( class="form-check form-switch" )
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 mqtt
-                    
-                input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="flexSwitchCheckChecked" checked)
-                label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
-                    h6 rdp
-                    
-         
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="dcerpc" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 dcerpc
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="dhcp" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 dhcp
+                    tr  
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="ikev2" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 ikev2
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="smtp" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 smtp
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="dns" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 dns
+                                
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="krb5" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 krb5
+                                
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="tls" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 tls
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="nfs" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 nfs
+                                
+                    tr
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="ssh" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 ssh
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="ntp" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 ntp
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="sip" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 sip
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="imap" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 imap
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="ftp-data" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 ftp-data
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="rfb" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 rfb
+                    tr
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="mqtt" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 mqtt
+                        th
+                            input(class="form-check-input" style="width: 40px;   height: 18px;" type="checkbox" id="rdp" checked)
+                            label(class="form-check-label mx-4" for="flexSwitchCheckChecked")
+                                h6 rdp
+        
+        br
+        label(class="form-check-label" for="flexSwitchCheckChecked")
+                h5 Обновить базу данных правил Suricata
+        br
+        button( type="submit" class="btn btn-primary btn-block mb-4" id="suricata_update") Обновить
+        
+  script.
+    //статуст сурикаты
+    checkbox = document.querySelector('#suricata');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.value,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/suricata_on_off',
+    cache:false
+    });
+    }
+    
+    //обновить правила
+    checkbox = document.querySelector('#suricata_update');
+    checkbox.onclick = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.value
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/suricata_update',
+    cache:false
+    });
+    }
+  
+    //статуст http
+    checkbox = document.querySelector('#http');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#smb');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#tftp');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#ftp');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#dcerpc');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#dhcp');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#ikev2');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#smtp');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#dns');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#krb5');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#tls');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#nfs');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#ssh');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#ntp');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#sip');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#imap');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#ftp-data');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#rfb');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#mqtt');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
+    
+    checkbox = document.querySelector('#rdp');
+    checkbox.onchange = function() {
+    $.ajax({
+    type: 'POST',
+    data: {
+        id: this.id,
+        checked: this.checked ? 1:0,
+        test: "qweqweqwe"
+    },
+    success: function() { console.log("OK") },
+    error: function() { console.log("Error") },
+    url: '/manager/protocol_on_off',
+    cache:false
+    });
+    }
